@@ -79,6 +79,68 @@ public class Stream {
 				.sorted(Comparator.comparingInt(Pessoa::getIdade).reversed());
 		pessoasSorted.forEach(System.out::println);
 		
+		//Usando REDUCE ------------------------------------------------------------------------
+		// O valor 0 é o valor de identidade, iniciando o valor parcial da função e 
+		// será o valor final da operação caso os valores para redução seja vazio. 
+		// Ainda temos o subtotal que é o valor acumulador da redução e o element que é o valor combinador.
+		List<Integer> numeros = Arrays.asList(2, 9, 16, 20);
+		Integer reduce = numeros.stream()
+			.reduce(0, (subtotal, element) -> subtotal + element);
+		System.out.println("Soma dos números: " + reduce);
+		
+		Integer reduce2 = numeros.stream()
+			.reduce(0, Integer::sum);
+		System.out.println("Soma dos números2: " + reduce2);
+
+		List<String> palavras = Arrays.asList("Como", " usar", " reduce", " para", " juntar", " strings");
+		String reduce3 = palavras.stream()
+			.reduce("", (partialString , element) -> partialString + element);
+		System.out.println(reduce3);
+		
+		String reduce4 = palavras.stream()
+			.reduce("", String::concat);
+		System.out.println(reduce4);
+		
+		//------------------------------------------------------
+		
+		List<Funcionario> funcionarios = Arrays.asList(
+				new Funcionario("Edmundo", true),
+				new Funcionario("Romario", true),
+				new Funcionario("Bebeto", false),
+				new Funcionario("Renato", false));
+		
+		// Criar uma nova lista de usuários ativos e imprimir usando java 8 e forEach
+		funcionarios.stream()
+			.filter(funcionario -> funcionario.ativo)
+			.forEach(u -> System.out.println("Usuário ativo: " + u.nome));
+		
+		funcionarios.stream()
+			.filter(funcionario -> funcionario.ativo == false)
+			.forEach(u -> System.out.println("Usuário desativado: " + u.nome));
+		
+		// transformar todos os paises para letras maiusculas e concatenar em uma string utilizando join por , com java 8
+		List<String> paises = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada");
+		List<String> paisesMaiusculo = paises.stream()
+			.map(p -> p.toUpperCase())
+			.collect(Collectors.toList());
+		System.out.println(String.join(",", paisesMaiusculo) );
+		
+		List<Funcionario> func = Arrays.asList(
+				new Funcionario("Cesar", 2.589),
+				new Funcionario("Maria", 1.800));
+		func.stream()
+			.forEach(f -> System.out.println(f.salario * 5 /100));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
