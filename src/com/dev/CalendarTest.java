@@ -1,4 +1,4 @@
-package teste;
+package com.dev;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package teste;
+package com.dev.models;
 
 
 public class Pessoa {

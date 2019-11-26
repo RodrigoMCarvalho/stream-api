@@ -1,4 +1,4 @@
-package teste;
+package com.dev.java8;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -6,10 +6,13 @@ import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.*;
 
-public class Stream {
+import com.dev.models.Funcionario;
+import com.dev.models.Pessoa;
+
+public class StreamApi {
 
 	public static void main(String[] args) {
 
@@ -73,9 +76,9 @@ public class Stream {
 		pessoas.forEach(System.out::println);
 		System.out.println("Lista de pessoas ordenados por idade");
 		
-		java.util.stream.Stream<Pessoa> pessoasSorted = pessoas.stream()
+		Stream<Pessoa> pessoasSorted = pessoas.stream()
 				.sorted(Comparator.comparingInt(Pessoa::getIdade));
-		java.util.stream.Stream<Pessoa> pessoasSortedInverso = pessoas.stream()
+		Stream<Pessoa> pessoasSortedInverso = pessoas.stream()
 				.sorted(Comparator.comparingInt(Pessoa::getIdade).reversed());
 		pessoasSorted.forEach(System.out::println);
 		
@@ -110,13 +113,16 @@ public class Stream {
 				new Funcionario("Renato", false));
 		
 		// Criar uma nova lista de usuários ativos e imprimir usando java 8 e forEach
+//		funcionarios.stream()
+//			.filter(f -> f.)
+//			.forEach(u -> System.out.println("Usuário ativo: " + u.nome));
 		funcionarios.stream()
-			.filter(funcionario -> funcionario.ativo)
-			.forEach(u -> System.out.println("Usuário ativo: " + u.nome));
+			.filter(f -> f.getAtivo())
+			.forEach(u -> System.out.println("Usuario ativo: " + u.getNome()));
 		
 		funcionarios.stream()
-			.filter(funcionario -> funcionario.ativo == false)
-			.forEach(u -> System.out.println("Usuário desativado: " + u.nome));
+			.filter(funcionario -> funcionario.getAtivo() == false)
+			.forEach(u -> System.out.println("Usuário desativado: " + u.getNome()));
 		
 		// transformar todos os paises para letras maiusculas e concatenar em uma string utilizando join por , com java 8
 		List<String> paises = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada");
@@ -129,7 +135,7 @@ public class Stream {
 				new Funcionario("Cesar", 2.589),
 				new Funcionario("Maria", 1.800));
 		func.stream()
-			.forEach(f -> System.out.println(f.salario * 5 /100));
+			.forEach(f -> System.out.println(f.getSalario() * 5 /100));
 		
 		
 		
