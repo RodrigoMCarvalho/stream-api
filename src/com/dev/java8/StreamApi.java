@@ -25,13 +25,15 @@ public class StreamApi {
 
 		int soma = pessoas.stream()
 				.filter(p -> p.getNome().startsWith("B"))
-				.mapToInt(p -> p.getIdade()).sum();
+				.mapToInt(p -> p.getIdade())
+				.sum();
 
 		System.out.println(soma);
 
 		IntSummaryStatistics statistics = pessoas.stream()
 				.filter(p -> p.getNome().startsWith("B"))
-				.mapToInt(p -> p.getIdade()).summaryStatistics();
+				.mapToInt(p -> p.getIdade())
+				.summaryStatistics();
 
 		System.out.println("Soma: " + statistics.getSum());
 		System.out.println("Média: " + statistics.getAverage());
@@ -42,8 +44,8 @@ public class StreamApi {
 				.filter(p -> p.getNome().startsWith("B"))
 				.collect(Collectors.toList());
 		
-		Map<Integer, List<Pessoa>> mapPessoas = listPessoas.stream()
-				.collect(Collectors.groupingBy(Pessoa::getIdade));
+		Map<Integer, List<Pessoa>> mapPessoas = listPessoas.stream() //Lista de Pessoas
+				.collect(Collectors.groupingBy(Pessoa::getIdade));  //Retorna um inteiro
 		
 		mapPessoas.get(20).forEach(p -> System.out.println(p.getNome()));
 		
