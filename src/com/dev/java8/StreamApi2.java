@@ -15,7 +15,7 @@ public class StreamApi2 {
 		
 		lista.stream()
 			.skip(2)  //Pula os 2 primeiros números
-			.limit(3) //Após limitar a lista com 3 números
+			.limit(3) //Após pular os 2 irá limitar a lista com 3 números
 			.forEach(System.out::println);
 
 		long count = lista.stream()
@@ -44,9 +44,9 @@ public class StreamApi2 {
 			.collect(Collectors.toList());
 		System.out.println("Nova lista: " + novaLista);
 		
-		Map<Boolean, List<Integer>> mapaParImpar = lista.stream()//Mapa agrupado por Boleano, true será os não divisíveis por 2
-			.map(e -> e * 3)
-			.collect(Collectors.groupingBy(e -> e % 2 != 0)); //Comparação, retorna um Boleano 
+		Map<Boolean, List<Integer>> mapaParImpar = lista.stream()//Mapa agrupado por Boleano
+			.map(e -> e * 3)									//Multiplica por 3
+			.collect(Collectors.groupingBy(e -> e % 2 != 0)); //Comparação, retorna um Boleano, true será os não divisíveis por 2 
 		System.out.println(mapaParImpar);
 		
 		Map<Integer, List<Integer>> mapaResto = lista.stream() //Mapa agrupado pelo resto da divisão por 3
