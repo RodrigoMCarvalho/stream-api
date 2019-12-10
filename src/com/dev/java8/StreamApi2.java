@@ -35,8 +35,8 @@ public class StreamApi2 {
 		Optional<Integer> max = lista.stream()
 				.filter(e -> e % 2 == 0)
 				.max(Comparator.naturalOrder());
-		System.out.println("Menor número PAR da lsita: " + min.get());
-		System.out.println("Maior número PAR da lsita: " + max.get());
+		System.out.println("Menor número PAR da lista: " + min.get());
+		System.out.println("Maior número PAR da lista: " + max.get());
 		
 		List<Integer> novaLista = lista.stream()
 			.filter(e -> e % 2 == 0)

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.*;
+import java.util.stream.Stream;
 
 import com.dev.models.Funcionario;
 import com.dev.models.Pessoa;
@@ -140,15 +140,35 @@ public class StreamApi {
 			.forEach(f -> System.out.println(f.getSalario() * 5 /100));
 		
 		
+		pessoas.stream()
+			.filter(e -> e.getNome()
+			.startsWith("D"))
+			.forEach(System.out::println);
 		
+		System.out.println("---------------");
 		
+		pessoas.stream()
+			.filter(e -> e.getIdade() == 20)
+			.forEach(System.out::println);;
 		
+		System.out.println("---------------");	
 		
+//		for (Pessoa p : pessoas) {
+//			if(p.getIdade() == 29){
+//				p.setIdade(90);
+//			}
+//		}
+//		pessoas.forEach(System.out::println);
 		
+		pessoas.stream()
+			.map( e -> {
+				if (e.getIdade() == 29) {
+					 e.setIdade(90);
+				}return e;
+			}).forEach(System.out::println);
 		
 		
 		
 		
 	}
-
 }
