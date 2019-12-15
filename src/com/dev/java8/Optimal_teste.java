@@ -2,6 +2,7 @@ package com.dev.java8;
 
 import java.math.BigDecimal;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import com.dev.Motoristas;
 import com.dev.models.Caminhao;
@@ -25,7 +26,11 @@ public class Optimal_teste {
 			.ifPresent(System.out::println);
 		
 		Motoristas motoristas = new Motoristas();
-		Optional<Motorista> motoristaOpt = motoristas.porNome("Joãos");
+		Optional<Motorista> motoristaOpt = motoristas.porNome("José");
+		
+		Optional<Motorista> motoristaOpt2 = motoristas.porNome("Josés"); //tomará um NullPointer 
+		Optional<Optional<Motorista>> optional2 = Optional.ofNullable(motoristaOpt2);
+		optional2.ifPresent(n -> System.out.println(n));
 		
 //		Optional<Caminhao>caminhaoOpt = motoristaOpt.map(Motorista::getCaminhao);
 //		Optional<String>caminhaoOpt = motoristaOpt
@@ -38,33 +43,58 @@ public class Optimal_teste {
 				.flatMap(Caminhao::getSeguro)
 				.map(Seguro::getCobertura)
 				.orElse("Sem seguro");
-				
-		System.out.println(cobertura);;		
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+		System.out.println(cobertura);
+
 		
+		String string = "Optiona Java 8";
+		Optional<Integer> optional = converterEmNumero(string);
+		//System.out.println(optional.get());  Ainda pode tomar uma Exception com get
+		optional.ifPresent(n -> System.out.println(n));
 		
+		//Simplificando
+		converterEmNumero(string).ifPresent(n -> System.out.println(n));
 		
+		String s = "9";  //se consegue converter String para Integer, imprime o valor
+		//String s = "valor"; //se não consegue converter, imprime 2
+		Integer n = converterEmNumero(s).orElse(2);
+		System.out.println(n);
 		
+		Integer n2 = converterEmNumero(s).orElseGet(() -> 5);
+		System.out.println(n2);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		Stream.of().findFirst().ifPresent(System.out::println);
+
 	}
+	
+	public static Optional<Integer>	converterEmNumero(String numeroStr) {
+		try {
+			Integer numero = Integer.valueOf(numeroStr);
+			return Optional.of(numero);
+		} catch (Exception e) {
+			return Optional.empty();
+		}
+	}
+		
+				
+				
+				
+				
+				
+				
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 }
