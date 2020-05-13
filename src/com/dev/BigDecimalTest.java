@@ -8,20 +8,29 @@ public class Teste7 {
 
     public static void main(String[] args) {
 
-        BigDecimal qtdDestinada = new BigDecimal("0.00080");
-        BigDecimal getNumeroFatorConversao = new BigDecimal("0.005");
+        BigDecimal qtdDestinada = new BigDecimal("0.07");
+        BigDecimal getNumeroFatorConversao = new BigDecimal("0.001");
 
-        BigDecimal result = qtdDestinada.divide(getNumeroFatorConversao, new MathContext(16, RoundingMode.DOWN));
+        BigDecimal comoEstava = qtdDestinada.divide(getNumeroFatorConversao, new MathContext(16, RoundingMode.DOWN));
         BigDecimal result2 = qtdDestinada.divide(getNumeroFatorConversao, MathContext.DECIMAL64);
-        BigDecimal valorConvertido = BigDecimalUtil.toBigDecimal(result.toPlainString());
+        BigDecimal valorConvertido = BigDecimalUtil.toBigDecimal(comoEstava.toPlainString());
 
-        int scale = 2;
-        BigDecimal valor3 = qtdDestinada.divide(getNumeroFatorConversao, scale, RoundingMode.UNNECESSARY);
+        int scale = 5;
+        BigDecimal valor3 = qtdDestinada.divide(getNumeroFatorConversao, scale, RoundingMode.HALF_EVEN);
 
-        System.out.println("result " + result);
+        String notacao = "7E+1";
+        BigDecimal notacacoBig = new BigDecimal(notacao);
+        String notacaoBigConverter = notacacoBig.toPlainString();
+
+        System.out.println("comoEstava " + comoEstava);
         System.out.println("result2 " + result2);
         System.out.println("valorConvertido " + valorConvertido);
         System.out.println("valor3 " + valor3);
+        System.out.println("escala " + comoEstava.toPlainString());
+
+        System.out.println("notacao " + notacacoBig);
+        System.out.println("notacaoBigConverter " + notacaoBigConverter);
+
 
     }
 }
