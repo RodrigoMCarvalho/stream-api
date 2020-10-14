@@ -5,9 +5,9 @@ import java.util.Optional;
 public class Caminhao {
 
 	private String modelo;
-	private Optional<Seguro> seguro;
+	private Seguro seguro;
 
-	public Caminhao(String modelo, Optional<Seguro> seguro) {
+	public Caminhao(String modelo, Seguro seguro) {
 		super();
 		this.modelo = modelo;
 		this.seguro = seguro;
@@ -26,11 +26,10 @@ public class Caminhao {
 	}
 
 	public Optional<Seguro> getSeguro() {
-		return seguro;
+		return Optional.ofNullable(seguro);
 	}
 
-	public void setSeguro(Optional<Seguro> seguro) {
+	public void setSeguro(Seguro seguro) {
 		this.seguro = seguro;
 	}
-
 }

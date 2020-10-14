@@ -5,9 +5,9 @@ import java.util.Optional;
 public class Motorista {
 	private String nome;
 	private Integer idade;
-	private Optional<Caminhao> caminhao;
+	private Caminhao caminhao;
 
-	public Motorista(String nome, Integer idade, Optional<Caminhao> caminhao) {
+	public Motorista(String nome, Integer idade, Caminhao caminhao) {
 		super();
 		this.nome = nome;
 		this.idade = idade;
@@ -34,11 +34,19 @@ public class Motorista {
 	}
 
 	public Optional<Caminhao> getCaminhao() {
-		return caminhao;
+		return Optional.ofNullable(caminhao);
 	}
 
-	public void setCaminhao(Optional<Caminhao> caminhao) {
+	public void setCaminhao(Caminhao caminhao) {
 		this.caminhao = caminhao;
 	}
 
+	@Override
+	public String toString() {
+		return "Motorista{" +
+				"nome='" + nome + '\'' +
+				", idade=" + idade +
+				", caminhao=" + caminhao +
+				'}';
+	}
 }

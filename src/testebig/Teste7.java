@@ -13,7 +13,7 @@ public class Teste7 {
 
         BigDecimal comoEstava = qtdDestinada.divide(getNumeroFatorConversao, new MathContext(16, RoundingMode.DOWN));
         BigDecimal result2 = qtdDestinada.divide(getNumeroFatorConversao, MathContext.DECIMAL64);
-        BigDecimal valorConvertido = BigDecimalUtil.toBigDecimal(comoEstava.toPlainString());
+       // BigDecimal valorConvertido = BigDecimalUtil.toBigDecimal(comoEstava.toPlainString());
 
         int scale = 5;
         BigDecimal valor3 = qtdDestinada.divide(getNumeroFatorConversao, scale, RoundingMode.HALF_EVEN);
@@ -24,7 +24,7 @@ public class Teste7 {
 
         System.out.println("comoEstava " + comoEstava);
         System.out.println("result2 " + result2);
-        System.out.println("valorConvertido " + valorConvertido);
+       // System.out.println("valorConvertido " + valorConvertido);
         System.out.println("valor3 " + valor3);
         System.out.println("escala " + comoEstava.toPlainString());
 

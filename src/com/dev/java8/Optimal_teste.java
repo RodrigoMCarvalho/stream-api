@@ -26,18 +26,22 @@ public class Optimal_teste {
 			.ifPresent(System.out::println);
 		
 		Motoristas motoristas = new Motoristas();
-		Optional<Motorista> motoristaOpt = motoristas.porNome("José");
+		Optional<Motorista> motoristaOpt = motoristas.porNome("João");
 		
-		Optional<Motorista> motoristaOpt2 = motoristas.porNome("Josés"); //tomará um NullPointer 
+		Optional<Motorista> motoristaOpt2 = motoristas.porNome("Josésss"); //tomará um NullPointer
+
 		Optional<Optional<Motorista>> optional2 = Optional.ofNullable(motoristaOpt2);
-		optional2.ifPresent(n -> System.out.println(n));
-		
+		optional2.ifPresent(n -> System.out.println(n.get()));
+
+		//System.out.println(motoristaOpt2.get().getCaminhao()); tomará um NullPointer
+
 //		Optional<Caminhao>caminhaoOpt = motoristaOpt.map(Motorista::getCaminhao);
 //		Optional<String>caminhaoOpt = motoristaOpt
 //				.flatMap(Motorista::getCaminhao)
 //				.flatMap(Caminhao::getSeguro)
 //				.map(Seguro::getCobertura);
-//		caminhaoOpt.ifPresent(System.out::println);	
+//		caminhaoOpt.ifPresent(System.out::println);
+
 		String cobertura = motoristaOpt
 				.flatMap(Motorista::getCaminhao)
 				.flatMap(Caminhao::getSeguro)

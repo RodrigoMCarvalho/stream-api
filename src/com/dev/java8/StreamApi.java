@@ -36,7 +36,7 @@ public class StreamApi {
 				.summaryStatistics();
 
 		System.out.println("Soma: " + statistics.getSum());
-		System.out.println("Média: " + statistics.getAverage());
+		System.out.println("Mï¿½dia: " + statistics.getAverage());
 		System.out.println("Maior: " + statistics.getMax());
 		System.out.println("Menor: " + statistics.getMin());
 		
@@ -65,11 +65,11 @@ public class StreamApi {
 		
 		optPessoal.ifPresent(p -> System.out.println(p.getIdade()));
 		
-		System.out.println("Lista de números");
+		System.out.println("Lista de nï¿½meros");
 		List<Integer>listNum = Arrays.asList(5, 9, 4, 16, 2, 21, 3);
 		listNum.forEach(System.out::println);
 		
-		System.out.println("Lista de números ordenados");
+		System.out.println("Lista de nï¿½meros ordenados");
 		List<Integer> listSorted = listNum.stream()
 				.sorted()
 				.collect(Collectors.toList());
@@ -80,22 +80,22 @@ public class StreamApi {
 		
 		Stream<Pessoa> pessoasSorted = pessoas.stream()
 				.sorted(Comparator.comparingInt(Pessoa::getIdade));
-		Stream<Pessoa> pessoasSortedInverso = pessoas.stream()
+		pessoas.stream()
 				.sorted(Comparator.comparingInt(Pessoa::getIdade).reversed());
 		pessoasSorted.forEach(System.out::println);
 		
 		//Usando REDUCE ------------------------------------------------------------------------
-		// O valor 0 é o valor de identidade, iniciando o valor parcial da função e 
-		// será o valor final da operação caso os valores para redução seja vazio. 
-		// Ainda temos o subtotal que é o valor acumulador da redução e o element que é o valor combinador.
+		// O valor 0 ï¿½ o valor de identidade, iniciando o valor parcial da funï¿½ï¿½o e 
+		// serï¿½ o valor final da operaï¿½ï¿½o caso os valores para reduï¿½ï¿½o seja vazio. 
+		// Ainda temos o subtotal que ï¿½ o valor acumulador da reduï¿½ï¿½o e o element que ï¿½ o valor combinador.
 		List<Integer> numeros = Arrays.asList(2, 9, 16, 20);
 		Integer reduce = numeros.stream()
 			.reduce(0, (subtotal, element) -> subtotal + element);
-		System.out.println("Soma dos números: " + reduce);
+		System.out.println("Soma dos nï¿½meros: " + reduce);
 		
 		Integer reduce2 = numeros.stream()
 			.reduce(0, Integer::sum);
-		System.out.println("Soma dos números2: " + reduce2);
+		System.out.println("Soma dos nï¿½meros2: " + reduce2);
 
 		List<String> palavras = Arrays.asList("Como", " usar", " reduce", " para", " juntar", " strings");
 		String reduce3 = palavras.stream()
@@ -114,17 +114,17 @@ public class StreamApi {
 				new Funcionario("Bebeto", false),
 				new Funcionario("Renato", false));
 		
-		// Criar uma nova lista de usuários ativos e imprimir usando java 8 e forEach
+		// Criar uma nova lista de usuï¿½rios ativos e imprimir usando java 8 e forEach
 //		funcionarios.stream()
 //			.filter(f -> f.)
-//			.forEach(u -> System.out.println("Usuário ativo: " + u.nome));
+//			.forEach(u -> System.out.println("Usuï¿½rio ativo: " + u.nome));
 		funcionarios.stream()
 			.filter(f -> f.getAtivo())
 			.forEach(u -> System.out.println("Usuario ativo: " + u.getNome()));
 		
 		funcionarios.stream()
 			.filter(funcionario -> funcionario.getAtivo() == false)
-			.forEach(u -> System.out.println("Usuário desativado: " + u.getNome()));
+			.forEach(u -> System.out.println("Usuï¿½rio desativado: " + u.getNome()));
 		
 		// transformar todos os paises para letras maiusculas e concatenar em uma string utilizando join por , com java 8
 		List<String> paises = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada");

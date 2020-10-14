@@ -1,0 +1,22 @@
+
+O
+squid:S106<"9Replace this use of System.out or System.err by a logger.(±¤ª¹
+Usquid:S3655'"2Call "max.isPresent()" before accessing the value.(öşÅœıÿÿÿÿ8Šë’Ë£.
+Usquid:S3655&"2Call "min.isPresent()" before accessing the value.(ã¡ì™şÿÿÿÿ8Šë’Ë£.
+Jsquid:S1612:",Replace this lambda with a method reference.(ÌÒä‡8Šë’Ë£.
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(¹¦…‡úÿÿÿÿ8Šë’Ë£.
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(€¥âûşÿÿÿÿ8Šë’Ë£.
+V
+squid:S106"9Replace this use of System.out or System.err by a logger.(»‘ÍÒ8Šë’Ë£.
+[
+squid:S106&"9Replace this use of System.out or System.err by a logger.(ã¡ì™şÿÿÿÿ8Šë’Ë£.
+[
+squid:S106'"9Replace this use of System.out or System.err by a logger.(öşÅœıÿÿÿÿ8Šë’Ë£.
+[
+squid:S106-"9Replace this use of System.out or System.err by a logger.(Ì§µ‘şÿÿÿÿ8Šë’Ë£.
+[
+squid:S1062"9Replace this use of System.out or System.err by a logger.(“õˆÕûÿÿÿÿ8Šë’Ë£.
+[
+squid:S1066"9Replace this use of System.out or System.err by a logger.(˜×€Äÿÿÿÿÿ8Šë’Ë£.
