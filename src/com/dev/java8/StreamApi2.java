@@ -1,10 +1,6 @@
 package com.dev.java8;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamApi2 {
@@ -58,6 +54,8 @@ public class StreamApi2 {
 			.map(e -> String.valueOf(e))  //Transforma os números em string
 			.collect(Collectors.joining("-")); //Concatena os strings
 		System.out.println(string);
-	}
 
+		System.out.println("Date: " + new Date());
+
+	}
 }
