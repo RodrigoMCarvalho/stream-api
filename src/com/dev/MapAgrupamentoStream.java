@@ -47,10 +47,12 @@ public class MapAgrupamentoStream {
 
         List<Investimento> investimentos = new ArrayList<>();
         for (Map.Entry<Long, Double> entry : dados.entrySet()) {
-            Investimento invest = new Investimento();
-            invest.setAno(entry.getKey());
-            invest.setValor(entry.getValue());
-            investimentos.add(invest);
+            if (entry.getKey() >= anoAtual) {
+                Investimento invest = new Investimento();
+                invest.setAno(entry.getKey());
+                invest.setValor(entry.getValue());
+                investimentos.add(invest);
+            }
         }
 
         System.out.println("============ Valores agrupados por ano =============");
