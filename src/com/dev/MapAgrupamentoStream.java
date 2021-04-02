@@ -5,10 +5,7 @@ import com.dev.models.Investimento;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MapAgrupamentoStream {
@@ -17,6 +14,8 @@ public class MapAgrupamentoStream {
 
         Map<Long, Double> dados = new LinkedHashMap<>();
         List<Investimento> investOriginalList = new ArrayList<>();
+        Calendar cal = Calendar.getInstance();
+        int anoAtual = cal.get(Calendar.YEAR);
 
         String path = "src/com/dev/files/dados.csv";
 
@@ -62,6 +61,7 @@ public class MapAgrupamentoStream {
                 .collect(Collectors.groupingBy(Investimento::getAno, Collectors.summingDouble(Investimento::getValor)));
 
         mapInvest.entrySet().stream()
+                .filter(e -> e.getKey() >= anoAtual)
                 .map(e -> new Investimento(e.getKey(), e.getValue()))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
