@@ -1,7 +1,10 @@
 package com.dev.java8;
 
+import com.dev.models.Funcionario;
+
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamApi2 {
 
@@ -57,5 +60,29 @@ public class StreamApi2 {
 
 		System.out.println("Date: " + new Date());
 
+		List<String> paises = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.","Canada");
+		paises.stream().sorted().forEach(System.out::println);
+
+		List<Funcionario> funcionarios = Arrays.asList(new Funcionario("Rodrigo", false),
+				new Funcionario("Mario", false),
+				new Funcionario("Jorge", false),
+				new Funcionario("Gustavo", false),
+				new Funcionario("Alex", false),
+				new Funcionario("Zulu", false),
+				new Funcionario("Carlos", false));
+
+		funcionarios.stream()
+				.sorted(Comparator.comparing(Funcionario::getNome))
+				.forEach(System.out::println);
+
+		List<String> nordeste = Arrays.asList("Bahia", "Ceará", "Maranhão", "Piauí");
+		List<String> sudeste = Arrays.asList("Rio de janeiro", "São Paulo", "Minas Gerais", "Espirito Santo");
+		List<String> sul = Arrays.asList("Rio Grande do sul", "Santa Catarina", "Paraná");
+
+		Stream.of(nordeste,sudeste,sul)
+				.flatMap(Collection::stream)
+				.sorted()
+				.collect(Collectors.toList())
+				.forEach(System.out::println);
 	}
 }
