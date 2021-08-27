@@ -68,6 +68,10 @@ public class Optimal_teste {
 		
 		Stream.of().findFirst().ifPresent(System.out::println);
 
+		Integer valor = 9;
+		Integer valorFinal = Optional.ofNullable(valor).map(v -> v * 2).orElse(10);
+		System.out.println(valorFinal);
+
 	}
 	
 	public static Optional<Integer>	converterEmNumero(String numeroStr) {
