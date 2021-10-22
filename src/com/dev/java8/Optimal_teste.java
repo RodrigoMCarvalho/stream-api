@@ -53,10 +53,10 @@ public class Optimal_teste {
 		String string = "Optiona Java 8";
 		Optional<Integer> optional = converterEmNumero(string);
 		//System.out.println(optional.get());  Ainda pode tomar uma Exception com get
-		optional.ifPresent(n -> System.out.println(n));
+		optional.ifPresent(System.out::println);
 		
 		//Simplificando
-		converterEmNumero(string).ifPresent(n -> System.out.println(n));
+		converterEmNumero(string).ifPresent(System.out::println);
 		
 		String s = "9";  //se consegue converter String para Integer, imprime o valor
 		//String s = "valor"; //se não consegue converter, imprime 2
