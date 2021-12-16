@@ -1,11 +1,6 @@
 package com.dev.java8;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -174,6 +169,21 @@ public class StreamApi {
 				.forEach(e -> e.setIdade(91));
 
 		pessoas.forEach(System.out::println);
+
+		System.out.println("---------------------------- Funcionarios");
+
+		List<Funcionario> funcionarioList = pessoas.stream().map(pessoa -> {
+			var funcionario = new Funcionario();
+			funcionario.setNome(pessoa.getNome());
+			funcionario.setAtivo(true);
+			funcionario.setSalario(retornaSalario(pessoa.getIdade()));
+			return funcionario;
+		}).collect(Collectors.toList());
 		
+		funcionarioList.forEach(System.out::println);
+	}
+
+	private static Double retornaSalario(int idade) {
+		return idade > 50 ? 8500.0 : 5500.0;
 	}
 }

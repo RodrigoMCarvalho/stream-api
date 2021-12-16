@@ -4,8 +4,11 @@ public class Funcionario {
 	String nome;
 	Boolean ativo;
 	Double salario;
-	
-	public Funcionario(String nome,Boolean ativo) {
+
+	public Funcionario() {
+	}
+
+	public Funcionario(String nome, Boolean ativo) {
 		this.nome = nome;
 		this.ativo = ativo;
 	}
