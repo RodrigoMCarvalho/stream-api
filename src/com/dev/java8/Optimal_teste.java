@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import com.dev.Motoristas;
+import com.dev.models.Motoristas;
 import com.dev.models.Caminhao;
 import com.dev.models.Motorista;
 import com.dev.models.Seguro;

@@ -1,10 +1,10 @@
-package testebig;
+package com.dev.bigdecimal;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-public class Teste7 {
+public class NotacaoCientifica {
 
     public static void main(String[] args) {
 

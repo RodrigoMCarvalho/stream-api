@@ -1,4 +1,4 @@
-package com.dev;
+package com.dev.map;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

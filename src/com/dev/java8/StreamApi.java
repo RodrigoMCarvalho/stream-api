@@ -179,7 +179,7 @@ public class StreamApi {
 			funcionario.setSalario(retornaSalario(pessoa.getIdade()));
 			return funcionario;
 		}).collect(Collectors.toList());
-		
+
 		funcionarioList.forEach(System.out::println);
 	}
 
