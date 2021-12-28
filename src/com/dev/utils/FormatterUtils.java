@@ -57,7 +57,7 @@ public class FormatterUtils {
         String teste = "Isso é um teste.";
         System.out.println(teste.substring(10, 13));
 
-        String espacos = "i s p a c e s";
+        String espacos = "i s p a c o s";
         String semEspacos = espacos.replaceAll(" ", "");
         System.out.println(semEspacos.replace("i", "e"));
 
