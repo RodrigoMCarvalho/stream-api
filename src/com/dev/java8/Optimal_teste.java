@@ -1,13 +1,12 @@
 package com.dev.java8;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import com.dev.models.Motoristas;
-import com.dev.models.Caminhao;
-import com.dev.models.Motorista;
-import com.dev.models.Seguro;
+import com.dev.models.*;
 
 public class Optimal_teste {
 
@@ -71,6 +70,11 @@ public class Optimal_teste {
 		Integer valor = 9;
 		Integer valorFinal = Optional.ofNullable(valor).map(v -> v * 2).orElse(10);
 		System.out.println(valorFinal);
+
+		//FIXME: Converter array para lista
+		Optional<Funcionario[]> fun = Optional.ofNullable(null);
+		fun.map(Arrays::asList).orElse(Collections.emptyList());
+		
 
 	}
 	
