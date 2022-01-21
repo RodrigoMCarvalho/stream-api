@@ -74,7 +74,7 @@ public class Optimal_teste {
 		//FIXME: Converter array para lista
 		Optional<Funcionario[]> fun = Optional.ofNullable(null);
 		fun.map(Arrays::asList).orElse(Collections.emptyList());
-		
+
 
 	}
 	
