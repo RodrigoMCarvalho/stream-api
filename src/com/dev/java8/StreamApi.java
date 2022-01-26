@@ -57,7 +57,6 @@ public class StreamApi {
 		if(optPessoal.isPresent()) {
 			System.out.println(optPessoal.get().getIdade());
 		}
-		
 		optPessoal.ifPresent(p -> System.out.println(p.getIdade()));
 		
 		System.out.println("Lista de números");

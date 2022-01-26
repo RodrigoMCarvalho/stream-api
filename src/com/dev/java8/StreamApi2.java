@@ -1,6 +1,9 @@
 package com.dev.java8;
 
+import com.dev.models.CategoriaCliente;
+import com.dev.models.Cliente;
 import com.dev.models.Funcionario;
+import com.dev.models.TipoCliente;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -84,5 +87,52 @@ public class StreamApi2 {
 				.sorted()
 				.collect(Collectors.toList())
 				.forEach(System.out::println);
+
+		CategoriaCliente categoriaCliente = new CategoriaCliente("categoria1", "S", null);
+		CategoriaCliente categoriaCliente2 = new CategoriaCliente("categoria2", "S", null);
+		CategoriaCliente categoriaCliente3 = new CategoriaCliente("categoria3", "N", null);
+
+		CategoriaCliente categoriaCliente4 = new CategoriaCliente("categoria4", "N", null);
+		CategoriaCliente categoriaCliente5 = new CategoriaCliente("categoria5", "N", null);
+		CategoriaCliente categoriaCliente6 = new CategoriaCliente("categoria6", "S", null);
+
+		List<CategoriaCliente> categoriaList = List.of(categoriaCliente, categoriaCliente2, categoriaCliente3);
+		List<CategoriaCliente> categoriaList2 = List.of(categoriaCliente4, categoriaCliente5, categoriaCliente6);
+
+		TipoCliente tipoCliente = new TipoCliente("tipo1", categoriaList);
+		TipoCliente tipoCliente2 = new TipoCliente("tipo2", categoriaList2);
+
+		List<TipoCliente> tipos = List.of(tipoCliente, tipoCliente2);
+
+		Cliente cliente = new Cliente("Cliente1", tipos);
+
+//		for (TipoCliente tipo : cliente.getTipoClientes()) {
+//			for (CategoriaCliente categoria : tipo.getCategoriaClienteList()) {
+//				if(categoria.getFlAtivo().equals("S")) {
+//					categoria.setValor(10);
+//				} else {
+//					categoria.setValor(30);
+//				}
+//			}
+//		}
+		cliente.getTipoClientes().stream()
+				.flatMap(tipo -> tipo.getCategoriaClienteList().stream())
+				.forEach(StreamApi2::map);
+		System.out.println(cliente);
+
+		cliente.getTipoClientes().stream()
+				.flatMap(tipo -> tipo.getCategoriaClienteList().stream())
+				.map(CategoriaCliente::getNome)
+				.forEach(System.out::println);
+				//.collect(Collectors.toList());
+
+	}
+
+	private static void map(CategoriaCliente categoria) {
+		if (categoria.getFlAtivo().equals("S")) {
+			categoria.setValor(10);
+		} else {
+			categoria.setValor(30);
+		}
 	}
 }
