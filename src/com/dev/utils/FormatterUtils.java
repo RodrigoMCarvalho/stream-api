@@ -27,7 +27,10 @@ public class FormatterUtils {
         System.out.println(pi1);
         System.out.println(pi2);
         String nome = "Rodrigo";
+        String sobreNome = "Moreira";
         System.out.println(String.format("Ola, %s! ", nome));
+
+        System.out.println(String.format("Nome completo: %s %s", nome, sobreNome));
 
         System.out.println(String.format("|%10d|", 101));
 
