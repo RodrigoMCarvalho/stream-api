@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Optional;
 
 public class FormatterUtils {
 
@@ -71,6 +72,24 @@ public class FormatterUtils {
 
         Pessoa pessoa = new Pessoa(infos[1], Integer.parseInt(infos[2]));
         System.out.println(pessoa);
+
+        System.out.println("============================");
+
+
+        String produto = "CDB 1";
+        String produto2 = "  CDB 9 ANOS";
+        String produto3 = " LDI 9 ANOS";
+        String produto4 = null;
+
+        System.out.println(produto.trim().substring(0,3));
+        System.out.println(produto2.trim().substring(0,3));
+        System.out.println(produto3.trim().substring(0,3));
+
+        System.out.println(Optional.ofNullable(produto4).map(String::trim).map(p -> p.substring(0,3)).orElse("Sem produto"));
+        System.out.println(Optional.ofNullable(produto2).map(String::trim).map(p -> p.substring(0,3)).orElse("Sem produto"));
+
+
+
 
 
     }
