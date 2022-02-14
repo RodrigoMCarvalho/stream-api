@@ -141,7 +141,7 @@ public class StreamApi2 {
 //		}
 		cliente.getTipoClientes().stream()
 				.flatMap(tipo -> tipo.getCategoriaClienteList().stream())
-				.forEach(StreamApi2::map);
+				.forEach(categoria -> categoria.setValor(categoria.getFlAtivo().equals("S") ? 10 : 30));
 		System.out.println(cliente);
 
 		cliente.getTipoClientes().stream()
@@ -153,10 +153,12 @@ public class StreamApi2 {
 	}
 
 	private static void map(CategoriaCliente categoria) {
-		if (categoria.getFlAtivo().equals("S")) {
-			categoria.setValor(10);
-		} else {
-			categoria.setValor(30);
-		}
+//		if (categoria.getFlAtivo().equals("S")) {
+//			categoria.setValor(10);
+//		} else {
+//			categoria.setValor(30);
+//		}
+		categoria.setValor(categoria.getFlAtivo().equals("S") ? 10 : 30);
+
 	}
 }
