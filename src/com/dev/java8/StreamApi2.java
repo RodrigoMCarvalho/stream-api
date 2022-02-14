@@ -82,8 +82,32 @@ public class StreamApi2 {
 		List<String> sudeste = Arrays.asList("Rio de janeiro", "São Paulo", "Minas Gerais", "Espirito Santo");
 		List<String> sul = Arrays.asList("Rio Grande do sul", "Santa Catarina", "Paraná");
 
+		System.out.println("-----Juntando listas Stream.of ---------");
 		Stream.of(nordeste,sudeste,sul)
 				.flatMap(Collection::stream)
+				.sorted()
+				.collect(Collectors.toList())
+				.forEach(System.out::println);
+
+		System.out.println("-----Juntando listas Stream.concat (3 listas)---------");
+		Stream.concat(Stream.concat(nordeste.stream(),sudeste.stream()), sul.stream())
+				.sorted()
+				.collect(Collectors.toList())
+				.forEach(System.out::println);
+
+		System.out.println("-----Juntando listas Stream.concat (2 listas)---------");
+		Stream.concat(nordeste.stream(),sudeste.stream())
+				.sorted()
+				.collect(Collectors.toList())
+				.forEach(System.out::println);
+
+		List<String> frutas1 = Arrays.asList("banana", "melancia", "morango", "banana");
+		List<String> frutas2 = Arrays.asList("abacaxi", "maracujá", "morango", "banana");
+
+		System.out.println("-----Juntando listas de frutas distintas---------");
+		Stream.of(frutas1,frutas2)
+				.flatMap(Collection::stream)
+				.distinct()
 				.sorted()
 				.collect(Collectors.toList())
 				.forEach(System.out::println);
