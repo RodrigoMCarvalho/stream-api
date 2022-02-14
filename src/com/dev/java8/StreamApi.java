@@ -20,18 +20,20 @@ public class StreamApi {
 
 		int soma = pessoas.stream()
 				.filter(p -> p.getNome().startsWith("B"))
-				.mapToInt(p -> p.getIdade())
+				.mapToInt(Pessoa::getIdade)
 				.sum();
 
 		System.out.println(soma);
 
 		IntSummaryStatistics statistics = pessoas.stream()
 				.filter(p -> p.getNome().startsWith("B"))
-				.mapToInt(p -> p.getIdade())
+				.mapToInt(Pessoa::getIdade)
 				.summaryStatistics();
 
+		String media = String.format("%.2f", statistics.getAverage()).replace(",",".");
+
 		System.out.println("Soma: " + statistics.getSum());
-		System.out.println("Média: " + statistics.getAverage());
+		System.out.println("Média: " + Double.parseDouble(media));
 		System.out.println("Maior: " + statistics.getMax());
 		System.out.println("Menor: " + statistics.getMin());
 		
