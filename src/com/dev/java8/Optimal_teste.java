@@ -3,6 +3,7 @@ package com.dev.java8;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -75,6 +76,11 @@ public class Optimal_teste {
 		Optional<Funcionario[]> fun = Optional.ofNullable(null);
 		fun.map(Arrays::asList).orElse(Collections.emptyList());
 
+		var funcionario = new Funcionario();
+		funcionario.setNome("Rodrigo");
+		funcionario = null;
+		System.out.println(Objects.nonNull(funcionario) ? funcionario.getNome() : null);
+		Optional.ofNullable(funcionario).ifPresentOrElse(f -> System.out.println(f.getNome()), () -> System.out.println("Vazio"));
 
 	}
 	

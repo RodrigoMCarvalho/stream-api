@@ -150,15 +150,31 @@ public class StreamApi2 {
 				.forEach(System.out::println);
 				//.collect(Collectors.toList());
 
+		System.out.println(String.format("Lista original: %s", sudeste));
+
+		Collections.shuffle(sudeste);
+		System.out.println(String.format("Lista embaralhada: %s", sudeste));
+
+		Collections.sort(sudeste);
+		System.out.println(String.format("Lista ordenada: %s", sudeste));
+
+		Collections.reverse(sudeste);
+		System.out.println(String.format("Lista reversa: %s", sudeste));
+
+		List<Integer> list = Arrays.asList(1,2,3,4);
+		list.stream()
+				.sorted(Collections.reverseOrder())
+				.forEach(System.out::println);
+
+		System.out.println("----Original----");
+		sul.stream().forEach(System.out::println);
+
+		System.out.println("----Inversa----");
+		sul.stream().sorted(Collections.reverseOrder()).forEach(System.out::println);
+
+		System.out.println("----Ordenda----");
+		sul.stream().sorted().forEach(System.out::println);
 	}
 
-	private static void map(CategoriaCliente categoria) {
-//		if (categoria.getFlAtivo().equals("S")) {
-//			categoria.setValor(10);
-//		} else {
-//			categoria.setValor(30);
-//		}
-		categoria.setValor(categoria.getFlAtivo().equals("S") ? 10 : 30);
 
-	}
 }
