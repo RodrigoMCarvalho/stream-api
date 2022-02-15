@@ -174,7 +174,27 @@ public class StreamApi2 {
 
 		System.out.println("----Ordenda----");
 		sul.stream().sorted().forEach(System.out::println);
-	}
+
+//        var variavel = "S";
+//        if(variavel.equals("S")) {
+//            System.out.println("sim");
+//        } else if (variavel.equals("N")) {
+//            System.out.println("não");
+//        } else if (variavel.equals("T")) {
+//            System.out.println("talvez");
+//        } else if (variavel.equals("E")) {
+//            System.out.println("error");
+//        } else {
+//            System.out.println("não encontrado");
+//        }
+
+        System.out.println(TipoEnum.obterValue("S"));
+        System.out.println(TipoEnum.obterValue("N"));
+        System.out.println(TipoEnum.obterValue("X"));
+    }
+
+
 
 
 }
+
