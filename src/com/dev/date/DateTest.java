@@ -84,7 +84,8 @@ public class DateTest {
         System.out.println("Novo Calcular a diferença de dias entre datas");
         var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
         var inicio = LocalDateTime.parse("2020-01-01T00:00:00", formatter);
-        var fim = LocalDateTime.parse("2020-01-30T00:00:00", formatter);
+        var fim = LocalDateTime.parse("2020-01-02T00:00:00", formatter);
+        //var fim = LocalDateTime.parse("2020-01-01T00:00:00", formatter);
 
         long diasDiferenca = ChronoUnit.DAYS.between(inicio, fim);
         System.out.println(diasDiferenca);
