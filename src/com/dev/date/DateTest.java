@@ -2,6 +2,7 @@ package com.dev.date;
 
 import java.text.SimpleDateFormat;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
@@ -50,7 +51,7 @@ public class DateTest {
         calendar.add(Calendar.HOUR_OF_DAY, 6);
         System.out.println(calendar.getTime());
 
-        //Calcular a diferença de dias entre datas
+        System.out.println("Calcular a diferença de dias entre datas");
         Date dia15012021 = calendar.getTime();
         Date hoje = new Date();
 
@@ -79,6 +80,14 @@ public class DateTest {
         Duration duration = Duration.between(startDate2, endDate2);
         System.out.println(duration);
 
+
+        System.out.println("Novo Calcular a diferença de dias entre datas");
+        var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+        var inicio = LocalDateTime.parse("2020-01-01T00:00:00", formatter);
+        var fim = LocalDateTime.parse("2020-01-30T00:00:00", formatter);
+
+        long diasDiferenca = ChronoUnit.DAYS.between(inicio, fim);
+        System.out.println(diasDiferenca);
 
     }
 
