@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
@@ -89,6 +90,13 @@ public class DateTest {
 
         long diasDiferenca = ChronoUnit.DAYS.between(inicio, fim);
         System.out.println(diasDiferenca);
+
+        LocalDateTime ultimoDiaDoMesAnterior = LocalDateTime.now().minusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
+        LocalDateTime primeiroDiaDoMesAnterior = LocalDateTime.now().minusMonths(1).with(TemporalAdjusters.firstDayOfMonth());
+        System.out.println(ultimoDiaDoMesAnterior.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        System.out.println(primeiroDiaDoMesAnterior.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+
 
     }
 
