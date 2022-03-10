@@ -98,6 +98,11 @@ public class DateTest {
 
 
 
+
+        LocalDate ontem = LocalDate.now().minusDays(1);
+        System.out.println("Ontem: " + ontem);
+
+
     }
 
     public static String remaingTimeCalculator(OffsetDateTime offsetDateTime){
