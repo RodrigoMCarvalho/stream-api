@@ -99,6 +99,12 @@ public class DateTest {
 
         LocalDate ontem = LocalDate.now().minusDays(1);
         System.out.println("Ontem: " + ontem);
+
+        System.out.println("=======");
+        LocalDateTime primeiroM2 = LocalDateTime.now().minusMonths(2).with(TemporalAdjusters.firstDayOfMonth());
+        LocalDateTime ultimoM1 = LocalDateTime.now().minusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
+        System.out.println("primeiro dia: " + primeiroM2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        System.out.println("ultimo dia: " + ultimoM1.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
     }
 
     public static String remaingTimeCalculator(OffsetDateTime offsetDateTime){

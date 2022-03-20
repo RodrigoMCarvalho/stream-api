@@ -88,8 +88,10 @@ public class FormatterUtils {
         System.out.println(Optional.ofNullable(produto4).map(String::trim).map(p -> p.substring(0,3)).orElse("Sem produto"));
         System.out.println(Optional.ofNullable(produto2).map(String::trim).map(p -> p.substring(0,3)).orElse("Sem produto"));
 
-
-
+        String cpf = "746.697.500-38";
+        String cnpj = "16.414.781/0001-09";
+        System.out.println("CPF tem " + cpf.length());
+        System.out.println("CNPJ tem " + cnpj.length());
 
 
     }
