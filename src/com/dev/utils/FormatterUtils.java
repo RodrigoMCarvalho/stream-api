@@ -4,8 +4,10 @@ import com.dev.models.Pessoa;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Optional;
@@ -93,6 +95,18 @@ public class FormatterUtils {
         System.out.println("CPF tem " + cpf.length());
         System.out.println("CNPJ tem " + cnpj.length());
 
+        System.out.println("============================");
+
+        LocalDateTime primeiroM2 = LocalDateTime.now().minusMonths(2).with(TemporalAdjusters.firstDayOfMonth());
+        LocalDateTime ultimoM1 = LocalDateTime.now().minusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
+        String primeiroM2Format = primeiroM2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String ultimoM1Format = ultimoM1.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+        String join = String.join(", ", primeiroM2Format, ultimoM1Format);
+        System.out.println(join);
+
+        String format = String.format("EXEC PROC '%s', '%s'", primeiroM2Format, ultimoM1Format);
+        System.out.println(format);
 
     }
 
