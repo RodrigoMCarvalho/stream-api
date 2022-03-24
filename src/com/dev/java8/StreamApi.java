@@ -159,8 +159,9 @@ public class StreamApi {
 		pessoas.stream()
 			.map( e -> {
 				if (e.getIdade() == 29) {
-					 e.setIdade(90);
-				}return e;
+					e.setIdade(90);
+				}
+				return e;
 			}).forEach(System.out::println);
 
 		System.out.println("---------------------------- Outra forma de modificar uma lista");
