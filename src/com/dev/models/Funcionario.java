@@ -16,6 +16,13 @@ public class Funcionario {
 		this.nome = nome;
 		this.salario = salario;
 	}
+
+	public Funcionario(String nome, Boolean ativo, Double salario) {
+		this.nome = nome;
+		this.ativo = ativo;
+		this.salario = salario;
+	}
+
 	public String getNome() {
 		return nome;
 	}
