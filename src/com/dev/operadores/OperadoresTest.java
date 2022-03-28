@@ -36,10 +36,58 @@ public class OperadoresTest {
 //                .filter(f -> (f.getNome().equals("Rodrigo") || f.getNome().equals("Ailton")) && !f.getAtivo())
 //                .forEach(System.out::println);
 
+//        for (Funcionario f : funcionarios) {
+//            if (f.getNome().equals("Rodrigo") || f.getNome().equals("Ailton")) {
+//                System.out.println(f);
+//                if (f.getSalario() == 6000.0) {
+//                    System.out.println(f);
+//                }
+//            }
+//        }
         for (Funcionario f : funcionarios) {
-            if ((f.getNome().equals("Rodrigo") || f.getNome().equals("Ailton")) && f.getSalario() == 6000.0) {
+            if ((f.getNome().equals("Rodrigo") || f.getNome().equals("Raquel") || f.getNome().equals("Ailton"))
+                    && f.getSalario() == 6000.0) {
                 System.out.println(f);
             }
+        }
+
+//        for (Funcionario f : funcionarios) {
+//            if (f.getNome().equals("Rodrigo") || f.getNome().equals("Ailton") || f.getNome().equals("Raquel")){
+//                //System.out.println(f);
+//                if (f.getSalario() == 6000.0) {
+//                    System.out.println(f);
+//                }
+//            }
+//        }
+
+        System.out.println(true && true);
+        System.out.println(true && false);
+        System.out.println(false && true);  //false e qualquer coisa, sempre será false
+        System.out.println(false && false); //false e qualquer coisa, sempre será false
+
+        System.out.println(true || true); //true ou qualquer coisa, sempre será true
+        System.out.println(true || false); //true ou qualquer coisa, sempre será true
+        System.out.println(false || true);
+        System.out.println(false || false);
+
+        boolean trabalhoTerca = false;
+        boolean trabalhoQuinta = true;
+
+        //Se os dois trabalhos derem certo compra TV de 50 polegadas
+        //Se somente um dos dois trabalhos derem certo compra TV de 32 polegadas
+        //Se compra qualquer TV, toma sorvete
+        //Se nada der certo, ficar em casa
+
+        if(trabalhoTerca && trabalhoQuinta) {
+            System.out.println("Comprou TV 50 polegadas");
+        } else if (trabalhoTerca || trabalhoQuinta){
+            System.out.println("Comprou TV 32 polegadas");
+        } else {
+            System.out.println("Ficou em casa....");
+        }
+
+        if (trabalhoTerca || trabalhoQuinta) {
+            System.out.println("Tomou sorvete");
         }
 
     }
