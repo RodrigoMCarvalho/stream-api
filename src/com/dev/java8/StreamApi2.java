@@ -1,10 +1,8 @@
 package com.dev.java8;
 
-import com.dev.models.CategoriaCliente;
-import com.dev.models.Cliente;
-import com.dev.models.Funcionario;
-import com.dev.models.TipoCliente;
+import com.dev.models.*;
 
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -191,7 +189,35 @@ public class StreamApi2 {
         System.out.println(TipoEnum.obterValue("S"));
         System.out.println(TipoEnum.obterValue("N"));
         System.out.println(TipoEnum.obterValue("X"));
-    }
+
+		List<Pessoa> pessoas = Arrays.asList(
+				new Pessoa("Rodrigo", 19),
+				new Pessoa("Gustavo", 20),
+				new Pessoa("Raquel", 22));
+
+		List<Pessoa> pessoas2 = Arrays.asList(
+				new Pessoa("Rodrigo", 19),
+				new Pessoa("Edmundo", 20),
+				new Pessoa("Raquel", 22));
+
+
+//		anyMatch  -> Retorna true se existir alguém na lista que retorna true;
+//		allMatch  -> Retorna true se todos mundo na lista retornar true;
+//		noneMatch -> Retorna true se todos na lista retornam false;
+
+		System.out.println("Compara de as listas tem os mesmo nomes: " +
+				pessoas.stream().map(Pessoa::getNome).allMatch(p ->
+						pessoas2.stream().map(Pessoa::getNome).collect(Collectors.toList()).contains(p)));
+
+		System.out.println(pessoas.stream().anyMatch(p -> p.getIdade() > 18));
+		System.out.println(pessoas.stream().anyMatch(p -> p.getNome().startsWith("G")));
+
+		System.out.println(pessoas.stream().allMatch(p -> p.getIdade() > 18));
+		System.out.println(pessoas.stream().allMatch(p -> p.getNome().startsWith("G"))); //para retornar true, todos os nomes deveriam começar com "G"
+
+		System.out.println(pessoas.stream().noneMatch(p -> p.getIdade() < 18));  //retornará true, pois todos na lista tem mais de 18
+
+	}
 
 
 
