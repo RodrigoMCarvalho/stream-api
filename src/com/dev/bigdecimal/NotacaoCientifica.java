@@ -3,6 +3,9 @@ package com.dev.bigdecimal;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Objects;
 
 public class NotacaoCientifica {
 
@@ -31,6 +34,14 @@ public class NotacaoCientifica {
         System.out.println("notacao " + notacacoBig);
         System.out.println("notacaoBigConverter " + notacaoBigConverter);
 
+        System.out.println("----------------");
+        String valor2 = "1.0E+5";
+        BigDecimal bigDecimal = new BigDecimal(valor2);
+        System.out.println(bigDecimal.toPlainString());
+
+        Locale locale = new Locale("pt", "BR");
+        String valorFormatado = NumberFormat.getNumberInstance(locale).format(new BigDecimal(valor2));
+        System.out.println(valorFormatado);
 
     }
 }
