@@ -1,5 +1,6 @@
 package com.dev.date;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +16,7 @@ public class DateTest {
 
     public static int DIAS_LIMITES_ABERTURA_RELATO = 5;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
         ZonedDateTime zonedDateTime = ZonedDateTime.now();
         OffsetDateTime now = OffsetDateTime.now();
@@ -105,6 +106,13 @@ public class DateTest {
         LocalDateTime ultimoM1 = LocalDateTime.now().minusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
         System.out.println("primeiro dia: " + primeiroM2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         System.out.println("ultimo dia: " + ultimoM1.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+        System.out.println("=======");
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        Date data = simpleDateFormat.parse("2022-01-01");
+        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(simpleDateFormat2.format(data));
     }
 
     public static String remaingTimeCalculator(OffsetDateTime offsetDateTime){

@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.*;
 import java.util.Optional;
 
 public class FormatterUtils {
@@ -107,6 +108,10 @@ public class FormatterUtils {
 
         String format = String.format("EXEC PROC '%s', '%s'", primeiroM2Format, ultimoM1Format);
         System.out.println(format);
+
+
+        List<Integer> numeros = List.of(2, 4, 8);
+        System.out.println(numeros.contains(2));
 
     }
 
