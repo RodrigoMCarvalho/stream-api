@@ -59,6 +59,8 @@ public class StreamApi {
 		System.out.println("<double> Maior: " + statsDouble.getMax());
 		System.out.println("<double> Menor: " + statsDouble.getMin());
 
+		double mediaDouble = doubleList.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+
 		List<Pessoa> listPessoas = pessoas.stream()
 				.filter(p -> p.getNome().startsWith("B"))
 				.collect(Collectors.toList());
