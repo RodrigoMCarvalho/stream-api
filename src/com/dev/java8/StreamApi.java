@@ -1,7 +1,10 @@
 package com.dev.java8;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
 
 import com.dev.models.Funcionario;
@@ -25,6 +28,8 @@ public class StreamApi {
 
 		System.out.println(soma);
 
+		//Estatisticas com tipo primitivo int
+
 		IntSummaryStatistics statistics = pessoas.stream()
 				.filter(p -> p.getNome().startsWith("B"))
 				.mapToInt(Pessoa::getIdade)
@@ -36,7 +41,24 @@ public class StreamApi {
 		System.out.println("Média: " + Double.parseDouble(media));
 		System.out.println("Maior: " + statistics.getMax());
 		System.out.println("Menor: " + statistics.getMin());
-		
+
+		//Estatisticas com tipo primitivo int (outra forma)
+
+		IntSummaryStatistics statsInt = pessoas.stream().collect(Collectors.summarizingInt(Pessoa::getIdade));
+		System.out.println("<int> Soma: " + statsInt.getSum());
+		System.out.println("<int> Média: " + statsInt.getAverage());
+		System.out.println("<int> Maior: " + statsInt.getMax());
+		System.out.println("<int> Menor: " + statsInt.getMin());
+
+		//Estatisticas com tipo primitivo double
+
+		List<Double> doubleList = List.of(2.0, 2.5, 3.55, 4.0, 10.0);
+		DoubleSummaryStatistics statsDouble = doubleList.stream().collect(Collectors.summarizingDouble(Double::doubleValue));
+		System.out.println("<double> Soma: " + statsDouble.getSum());
+		System.out.println("<double> Média: " + statsDouble.getAverage());
+		System.out.println("<double> Maior: " + statsDouble.getMax());
+		System.out.println("<double> Menor: " + statsDouble.getMin());
+
 		List<Pessoa> listPessoas = pessoas.stream()
 				.filter(p -> p.getNome().startsWith("B"))
 				.collect(Collectors.toList());
