@@ -96,6 +96,13 @@ public class FormatterUtils {
         System.out.println("CPF tem " + cpf.length());
         System.out.println("CNPJ tem " + cnpj.length());
 
+        // Remover os caracteres e deixar somente os numeros
+        String cnpjSoNumeros = cnpj.replaceAll("[^0-9]", "");
+        String cpfSoNumeros = cpf.replaceAll("[^0-9]", "");
+        System.out.println("CNPJ so numeros: " + cnpjSoNumeros);
+        System.out.println("CPF so numeros: " + cpfSoNumeros);
+        System.out.println("Teste so numeros: " + "123456789".replaceAll("[^0-9]", ""));
+
         System.out.println("============================");
 
         LocalDateTime primeiroM2 = LocalDateTime.now().minusMonths(2).with(TemporalAdjusters.firstDayOfMonth());

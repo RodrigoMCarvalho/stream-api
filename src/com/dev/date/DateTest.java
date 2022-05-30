@@ -113,6 +113,17 @@ public class DateTest {
         Date data = simpleDateFormat.parse("2022-01-01");
         SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
         System.out.println(simpleDateFormat2.format(data));
+
+
+        System.out.println("=======");
+
+        String dataInicio = "2022-01-01";
+        String dataFim = "2022-02-01";
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime dataInicio2 = LocalDate.parse(dataInicio, dateTimeFormatter).atStartOfDay().withSecond(01);
+        LocalDateTime dataFim2 = LocalDate.parse(dataFim, dateTimeFormatter).atStartOfDay();
+        System.out.println(dataInicio2);
+        System.out.println(dataFim2);
     }
 
     public static String remaingTimeCalculator(OffsetDateTime offsetDateTime){
