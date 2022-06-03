@@ -120,6 +120,22 @@ public class FormatterUtils {
         List<Integer> numeros = List.of(2, 4, 8);
         System.out.println(numeros.contains(2));
 
+
+        LocalDateTime primeiroMes2 = LocalDateTime.now().minusMonths(2).with(TemporalAdjusters.firstDayOfMonth());
+        LocalDateTime ultimoMes2 = LocalDateTime.now().minusMonths(2).with(TemporalAdjusters.lastDayOfMonth());
+        String primeiroMes2Format = primeiroMes2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String ultimoMes2Format = ultimoMes2.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+        LocalDateTime primeiroMes1 = LocalDateTime.now().minusMonths(1).with(TemporalAdjusters.firstDayOfMonth());
+        LocalDateTime ultimoMes1 = LocalDateTime.now().minusMonths(1).with(TemporalAdjusters.lastDayOfMonth());
+        String primeiroMes1Format = primeiroMes1.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String ultimoMes1Format = ultimoMes1.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+        System.out.println("============================");
+        System.out.println(String.format("EXEC PROC '%s', '%s'", primeiroMes2Format, ultimoMes2Format));
+        System.out.println(String.format("EXEC PROC '%s', '%s'", primeiroMes1Format, ultimoMes1Format));
+
+
     }
 
 }
