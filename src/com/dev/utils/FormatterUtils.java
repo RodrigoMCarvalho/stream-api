@@ -2,8 +2,10 @@ package com.dev.utils;
 
 import com.dev.models.Pessoa;
 
+import javax.swing.text.MaskFormatter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -135,7 +137,38 @@ public class FormatterUtils {
         System.out.println(String.format("EXEC PROC '%s', '%s'", primeiroMes2Format, ultimoMes2Format));
         System.out.println(String.format("EXEC PROC '%s', '%s'", primeiroMes1Format, ultimoMes1Format));
 
+        System.out.println("============================");
+        
+        String pattern = "##/###.###/####";
+        String numeroProcesso = "010000012018";
 
+        String patternData = "####-##-##";
+        String data = "20220105";
+        String dataErro = "2022-01-05";
+
+        String patternCpf = "###.###.###-##";
+        String cpfFormatado = "10215788497";
+
+        String patternCelular = "(##)#####-####";
+        String celular = "21988417331";
+
+        System.out.println(format(pattern, numeroProcesso));
+        System.out.println(format(patternData, data.replaceAll("-","")));  //caso seja enviado não formatado, porém será testado
+        System.out.println(format(patternData, dataErro.replaceAll("-",""))); //caso seja enviado ja formatado
+        System.out.println(format(patternCpf, cpfFormatado));
+        System.out.println(format(patternCelular, celular));
+
+    }
+
+    private static String format(String pattern, Object value) {
+        MaskFormatter mask;
+        try {
+            mask = new MaskFormatter(pattern);
+            mask.setValueContainsLiteralCharacters(false);
+            return mask.valueToString(value);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
