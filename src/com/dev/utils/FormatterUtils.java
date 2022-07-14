@@ -138,7 +138,7 @@ public class FormatterUtils {
         System.out.println(String.format("EXEC PROC '%s', '%s'", primeiroMes1Format, ultimoMes1Format));
 
         System.out.println("============================");
-        
+
         String pattern = "##/###.###/####";
         String numeroProcesso = "010000012018";
 

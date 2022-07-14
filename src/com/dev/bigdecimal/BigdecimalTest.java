@@ -63,6 +63,12 @@ public class BigdecimalTest {
         System.out.println("Contador: " + collect.getCount());
         System.out.println("Soma: " + collect.getSum());
 
+        System.out.println(new BigDecimal("1000"));  //1000
+        System.out.println(new BigDecimal("1000").setScale(3, RoundingMode.HALF_EVEN));  //1000.000
+        System.out.println(new BigDecimal("1.000"));  //1.000
+        System.out.println(new BigDecimal("1").setScale(3, RoundingMode.HALF_EVEN));  //1.000
+        System.out.println(new BigDecimal("1.000").setScale(4, RoundingMode.HALF_EVEN));  //1.0000
+
     }
 
     public static BigDecimal calcularMedia(List<BigDecimal> values) {
