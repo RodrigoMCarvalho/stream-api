@@ -217,6 +217,22 @@ public class StreamApi2 {
 
 		System.out.println(pessoas.stream().noneMatch(p -> p.getIdade() < 18));  //retornará true, pois todos na lista tem mais de 18
 
+
+		String papel1 = "98";
+		String papel2 = "81";
+		List<String> papeisBloqueados = Arrays.asList("15", "52", "59", "81", "95");
+		List<String> papeisDoUsuario1 = Arrays.asList("18", "52");
+		List<String> papeisDoUsuario2 = Arrays.asList("177", "88");
+
+		System.out.println("Papel1 está bloqueado? " + papeisBloqueados.contains(papel1));
+		System.out.println("Papel2 está bloqueado? " + papeisBloqueados.contains(papel2));
+
+		System.out.println("Forma 2: Papel1 está bloqueado? " + papeisBloqueados.stream().anyMatch(s -> s.equals(papel1)));
+		System.out.println("Forma 2: Papel2 está bloqueado? " + papeisBloqueados.stream().anyMatch(s -> s.equals(papel2)));
+
+		System.out.println("Forma 3: Usuario1 está bloqueado? " + papeisDoUsuario1.stream().anyMatch(papelUsuario -> papeisBloqueados.contains(papelUsuario)));
+		System.out.println("Forma 3: Usuario2 está bloqueado? " + papeisDoUsuario2.stream().anyMatch(papelUsuario -> papeisBloqueados.contains(papelUsuario)));
+
 	}
 
 
