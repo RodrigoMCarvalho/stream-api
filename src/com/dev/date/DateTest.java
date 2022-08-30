@@ -1,5 +1,6 @@
 package com.dev.date;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
@@ -124,6 +125,10 @@ public class DateTest {
         LocalDateTime dataFim2 = LocalDate.parse(dataFim, dateTimeFormatter).atStartOfDay();
         System.out.println(dataInicio2);
         System.out.println(dataFim2);
+
+        String dataConvert = "2000-05-12 18:26:30";
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        System.out.println("Converter date " + parseDate(dataConvert, sdf2));
     }
 
     public static String remaingTimeCalculator(OffsetDateTime offsetDateTime){
@@ -133,6 +138,21 @@ public class DateTest {
         offsetDateTime = offsetDateTime.plusDays(DIAS_LIMITES_ABERTURA_RELATO);
         return String.format("%04d-%02d-%02dT%02d:%02d:%02d.%03d", offsetDateTime.getYear(), offsetDateTime.getMonthValue(),
                 offsetDateTime.getDayOfMonth(), offsetDateTime.getHour(), offsetDateTime.getMinute(), offsetDateTime.getSecond(), offsetDateTime.getNano());
+    }
+
+    private static Date parseDate(String readAndTrim, DateFormat dateFormat) {
+        try {
+            return dateFormat.parse(readAndTrim);
+        } catch (ParseException var5) {
+            String pattern;
+            if (dateFormat instanceof SimpleDateFormat) {
+                pattern = ((SimpleDateFormat)dateFormat).toPattern();
+            } else {
+                pattern = dateFormat.toString();
+            }
+
+            throw new IllegalArgumentException(var5.getMessage() + ", format: [" + pattern + "]");
+        }
     }
 
 }
