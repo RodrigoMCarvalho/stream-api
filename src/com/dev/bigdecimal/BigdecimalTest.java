@@ -20,22 +20,31 @@ public class BigdecimalTest {
         resultado = valor1.add(valor2);
         System.out.println(resultado.toPlainString());
 
-        resultado = valor1.subtract(valor2);
+        resultado = valor2.subtract(valor1);
         System.out.println(resultado.toPlainString());
 
         resultado = valor1.multiply(valor2);
         System.out.println(resultado.toPlainString());
 
-        resultado = valor1.divide(valor2, RoundingMode.HALF_EVEN);
+        resultado = valor2.divide(valor1, RoundingMode.HALF_EVEN);
         System.out.println(resultado.toPlainString());
+
+        resultado = valor2.divide(valor1, RoundingMode.HALF_EVEN);
+        System.out.println(resultado.toPlainString());
+
+        System.out.println(valor2.pow(3));
+
+        System.out.println(valor1.min(valor2));
+
+        System.out.println(valor1.max(valor2));
 
         //FIXME : Forma de comparar valores
         if (valor1.compareTo(valor2) < 0) {
-            System.out.println("Valor 2 eh MAIOR q Valor 1");
+            System.out.println("Valor 1 eh MENOR q Valor 2");
         }
 
-        if (valor2.compareTo(valor1) > 0) {
-            System.out.println("Valor 1 eh MENOR q Valor 2");
+        if (valor1.compareTo(valor2) > 0) {
+            System.out.println("Valor 1 eh MAIOR q Valor 2");
         }
 
         if (valor1.compareTo(valor1Igual) == 0) {
@@ -73,14 +82,14 @@ public class BigdecimalTest {
 
     public static BigDecimal calcularMedia(List<BigDecimal> values) {
 
-        BigDecimal median;
+        BigDecimal media;
         int positionNumber = (int) ((values.size() +1) /2.0)- 1;
         if (values.size() % 2 == 0) {
-            median = (values.get(positionNumber).add(values.get(positionNumber + 1))).divide(new BigDecimal(2), 6, RoundingMode.HALF_UP);
+            media = (values.get(positionNumber).add(values.get(positionNumber + 1))).divide(new BigDecimal(2), 6, RoundingMode.HALF_UP);
         } else {
-            median = values.get(positionNumber);
+            media = values.get(positionNumber);
         }
-        return median;
+        return media;
 
     }
 
