@@ -78,6 +78,21 @@ public class BigdecimalTest {
         System.out.println(new BigDecimal("1").setScale(3, RoundingMode.HALF_EVEN));  //1.000
         System.out.println(new BigDecimal("1.000").setScale(4, RoundingMode.HALF_EVEN));  //1.0000
 
+        /**
+         * Double trabalha com representação binária, o BigDecimal guardará o valor usando a base decimal.
+         * Por exemplo: enquanto o double tenta representar o valor “0.1” em binário e encontra uma dízima,
+         * o BigDecimal representa o mesmo valor através da base decimal “1 x 10^-1”.
+         *
+         * Flat/Double é para cálculos científicos, pois não guardam a precisão do valor.
+         * Bigdecimal é para cálculos finaceiros
+         */
+        System.out.println("===============");
+        Double d1 = 0.3;
+        System.out.println("Double: " + d1 * 3);   //Double: 0.8999999999999999
+
+        BigDecimal b1 = BigDecimal.valueOf(0.3);
+        System.out.println("Bigdecimal: " + b1.multiply(BigDecimal.valueOf(3)));  //Bigdecimal: 0.9
+
     }
 
     public static BigDecimal calcularMedia(List<BigDecimal> values) {
