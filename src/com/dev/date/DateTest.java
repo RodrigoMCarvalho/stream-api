@@ -129,6 +129,12 @@ public class DateTest {
         String dataConvert = "2000-05-12 18:26:30";
         SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("Converter date " + parseDate(dataConvert, sdf2));
+
+
+        LocalDateTime startDate3 = LocalDateTime.of(2021, 1, 15, 9, 0);
+        LocalDateTime endDate3 = LocalDateTime.of(2021, 1, 16, 8, 59);
+        System.out.println("A data " + startDate3 + " eh apos a data " + endDate3 + " ?");
+        System.out.println(startDate3.isAfter(endDate3));
     }
 
     public static String remaingTimeCalculator(OffsetDateTime offsetDateTime){
