@@ -1,10 +1,8 @@
 package com.dev.java8;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import com.dev.models.*;
@@ -80,8 +78,19 @@ public class Optimal_teste {
 		funcionario.setNome("Rodrigo");
 		funcionario = null;
 		System.out.println(Objects.nonNull(funcionario) ? funcionario.getNome() : null);
+
 		Optional.ofNullable(funcionario).ifPresentOrElse(f -> System.out.println(f.getNome()), () -> System.out.println("Vazio"));
 
+		List<Integer> status = Arrays.asList(2,6,8,10);
+
+		List<Integer> status2 = null;  //Para testar obj nulo
+
+		String statusString = Optional.ofNullable(status)
+				.orElseGet(Collections::emptyList).stream()
+				.map(Object::toString)
+				.collect(Collectors.joining(","));
+
+		System.out.println(statusString);
 	}
 	
 	public static Optional<Integer>	converterEmNumero(String numeroStr) {
