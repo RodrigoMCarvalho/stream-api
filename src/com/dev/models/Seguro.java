@@ -32,4 +32,11 @@ public class Seguro {
 		this.valorFranquia = valorFranquia;
 	}
 
+	@Override
+	public String toString() {
+		return "Seguro{" +
+				"cobertura='" + cobertura + '\'' +
+				", valorFranquia=" + valorFranquia +
+				'}';
+	}
 }

@@ -91,6 +91,16 @@ public class Optimal_teste {
 				.collect(Collectors.joining(","));
 
 		System.out.println(statusString);
+
+		Seguro seguro1 = new Seguro();
+		String cobertura1 = null;
+		BigDecimal valor1 = null;
+		//seguro1.setCobertura(Objects.requireNonNullElse(cobertura1, "Cobertura padrão"));
+//		seguro1.setValorFranquia(Objects.requireNonNullElse(valor1, BigDecimal.ZERO));
+		seguro1.setCobertura(Optional.ofNullable(cobertura1).orElse("Cobertura padrão optiomal"));
+		seguro1.setValorFranquia(Optional.ofNullable(valor1).orElse(BigDecimal.ZERO));
+		System.out.println(seguro1);
+
 	}
 	
 	public static Optional<Integer>	converterEmNumero(String numeroStr) {
