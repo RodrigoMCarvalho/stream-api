@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Calendar;
@@ -135,6 +136,27 @@ public class DateTest {
         LocalDateTime endDate3 = LocalDateTime.of(2021, 1, 16, 8, 59);
         System.out.println("A data " + startDate3 + " eh apos a data " + endDate3 + " ?");
         System.out.println(startDate3.isAfter(endDate3));
+
+        DateTimeFormatter fmt = DateTimeFormatter
+                .ofPattern("dd/MM/uuuu")
+                .withResolverStyle(ResolverStyle.STRICT);
+
+        LocalDate sabado = LocalDate.parse("15/10/2022", fmt);
+        LocalDate sexta = LocalDate.parse("14/10/2022", fmt);
+        LocalDate now1 = LocalDate.now();  //14/10/2022
+
+        System.out.println(sabado.isAfter(now1));
+        System.out.println(sabado.isBefore(now1));
+        System.out.println(sexta.isEqual(sabado));
+        System.out.println(sexta.isEqual(now1));
+
+        System.out.println(fimDeSemana(now1));
+        System.out.println(fimDeSemana(sabado));
+    }
+
+    public static boolean fimDeSemana(LocalDate ld) {
+        DayOfWeek d = ld.getDayOfWeek();
+        return d == DayOfWeek.SATURDAY || d == DayOfWeek.SUNDAY;
     }
 
     public static String remaingTimeCalculator(OffsetDateTime offsetDateTime){
