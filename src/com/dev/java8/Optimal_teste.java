@@ -101,6 +101,38 @@ public class Optimal_teste {
 		seguro1.setValorFranquia(Optional.ofNullable(valor1).orElse(BigDecimal.ZERO));
 		System.out.println(seguro1);
 
+		List<Pessoa> pessoas = (List.of(new Pessoa("Rodrigo", 20), new Pessoa("Gustavo", 20)));
+		List<Pessoa> pessoasNulo = null;
+
+		if(Objects.nonNull(pessoasNulo)) {
+			boolean nome = pessoasNulo.stream().map(Pessoa::getNome).anyMatch(p -> p.equals("Rodrigo"));
+		}
+
+		boolean nome1 = Optional.ofNullable(pessoas)
+				.map(Collection::stream)
+				.orElseGet(Stream::empty)
+				.anyMatch(p -> p.getNome().equals("Rodrigo"));
+
+		boolean nome2 = Optional.ofNullable(pessoasNulo)
+				.map(Collection::stream)
+				.orElseGet(Stream::empty)
+				.anyMatch(p -> p.getNome().equals("Rodrigo"));
+
+		System.out.println("Nome1 " + nome1);
+		System.out.println("Nome2 " + nome2);
+
+		Optional<Pessoa> p1 = Optional.ofNullable(pessoas)
+				.map(Collection::stream)
+				.orElseGet(Stream::empty)
+				.filter(p -> p.getNome().equals("Rodrigo")).findFirst();
+
+		Optional<Pessoa> p2 = Optional.ofNullable(pessoasNulo)
+				.map(Collection::stream)
+				.orElseGet(Stream::empty)
+				.filter(p -> p.getNome().equals("Rodrigo")).findFirst();
+
+		p1.ifPresent(System.out::println);
+		p2.ifPresent(System.out::println);
 	}
 	
 	public static Optional<Integer>	converterEmNumero(String numeroStr) {
