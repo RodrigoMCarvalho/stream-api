@@ -131,6 +131,14 @@ public class Optimal_teste {
 				.orElseGet(Stream::empty)
 				.filter(p -> p.getNome().equals("Rodrigo")).findFirst();
 
+		p1.ifPresent(pessoa -> {
+			pessoa.setIdade(35);
+		});
+
+		p2.ifPresent(pessoa -> {
+			pessoa.setIdade(65);
+		});
+
 		p1.ifPresent(System.out::println);
 		p2.ifPresent(System.out::println);
 	}
