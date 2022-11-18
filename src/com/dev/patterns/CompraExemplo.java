@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import static java.lang.System.out;
 
-public class Strategy {
+public class CompraExemplo {
 
     public static void main(String[] args) {
         BigDecimal valor = new BigDecimal("10");
