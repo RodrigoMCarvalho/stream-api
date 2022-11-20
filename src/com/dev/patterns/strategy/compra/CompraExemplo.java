@@ -1,4 +1,4 @@
-package com.dev.patterns;
+package com.dev.patterns.strategy.compra;
 
 import java.math.BigDecimal;
 
