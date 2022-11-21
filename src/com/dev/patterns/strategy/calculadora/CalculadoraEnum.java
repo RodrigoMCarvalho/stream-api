@@ -6,26 +6,26 @@ public enum CalculadoraEnum {
 
     SOMAR ("+", 1) {
         @Override
-        public double executarOperacao(double x, double y) {
-            return x + y;
+        public CalculadoraStrategy obterOperacao() {
+            return new Somar();
         }
     },
     SUBTRAIR("-", 2) {
         @Override
-        public double executarOperacao(double x, double y) {
-            return x - y;
+        public CalculadoraStrategy obterOperacao() {
+            return new Subtrair();
         }
     },
     MULTIPLICAR("*", 3) {
         @Override
-        public double executarOperacao ( double x, double y){
-            return x * y;
+        public CalculadoraStrategy obterOperacao(){
+            return new Multiplicar();
         }
     },
     DIVIDIR("/", 4) {
         @Override
-        public double executarOperacao(double x, double y) {
-            return x / y;
+        public CalculadoraStrategy obterOperacao() {
+            return new Dividir();
         }
     };
 
@@ -37,12 +37,12 @@ public enum CalculadoraEnum {
     private final String simbolo;
     private final int codigo;
 
-    public abstract double executarOperacao(double x, double y);
+    public abstract CalculadoraStrategy obterOperacao();
 
-    public static CalculadoraEnum obterOperacao(int codigo) {
+    public static CalculadoraEnum obterCalculadoraEnum(int codigo) {
         return Arrays.stream(CalculadoraEnum.values())
                 .filter(s -> s.getCodigo() == codigo)
-                .findFirst().orElse(null);
+                .findFirst().orElseThrow(() -> new CalculadoraException("Código inválido"));
     }
 
     public int getCodigo() {
