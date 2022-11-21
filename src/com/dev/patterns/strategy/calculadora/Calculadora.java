@@ -27,10 +27,10 @@ public class Calculadora {
             int opcaoOperacao = entrada.nextInt();
 
             CalculadoraEnum calculadoraEnum = CalculadoraEnum.obterCalculadoraEnum(opcaoOperacao);
-            CalculadoraStrategy strategy = calculadoraEnum.obterOperacao();
-            double valor = strategy.executarOperacao(n1, n2);
+            CalculadoraStrategy calculadora = calculadoraEnum.obterOperacao();
+            double valor = calculadora.executarOperacao(n1, n2);
 
-            System.out.println("O resultado da operação " + n1 + " " + calculadoraEnum.toString() + " " + n2+  " é : " + valor);
+            System.out.println("O resultado da operação " + n1 + " " + calculadoraEnum.toString() + " " + n2 +  " é : " + valor);
         }
 
 
