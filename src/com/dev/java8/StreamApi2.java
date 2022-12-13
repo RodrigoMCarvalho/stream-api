@@ -233,6 +233,12 @@ public class StreamApi2 {
 		System.out.println("Forma 3: Usuario1 está bloqueado? " + papeisDoUsuario1.stream().anyMatch(papelUsuario -> papeisBloqueados.contains(papelUsuario)));
 		System.out.println("Forma 3: Usuario2 está bloqueado? " + papeisDoUsuario2.stream().anyMatch(papelUsuario -> papeisBloqueados.contains(papelUsuario)));
 
+		List<Long> protocolos = Arrays.asList(12318l, 123499l, 123655l);
+		List<Long> protocolosInvalidos = Arrays.asList(123499l);
+
+		List<Long> protocolosValidos = protocolos.stream().filter(p -> !protocolosInvalidos.contains(p)).collect(Collectors.toList());
+		System.out.println(protocolosValidos); //[12318, 123655]
+
 	}
 
 
