@@ -16,16 +16,16 @@ public class Optimal_teste {
 //		cobertura = cobertura != null ? cobertura : "Sem seguro";
 //		
 //		System.out.println(cobertura);
-		
+
 		Seguro seguro = new Seguro("Total cobertura", new BigDecimal("600"));
 		Optional<Seguro> seguroOpt = Optional.ofNullable(seguro);
-		
+
 		seguroOpt.map(Seguro::getValorFranquia)
-			.ifPresent(System.out::println);
-		
+				.ifPresent(System.out::println);
+
 		Motoristas motoristas = new Motoristas();
 		Optional<Motorista> motoristaOpt = motoristas.porNome("João");
-		
+
 		Optional<Motorista> motoristaOpt2 = motoristas.porNome("Josésss"); //tomará um NullPointer
 
 		Optional<Optional<Motorista>> optional2 = Optional.ofNullable(motoristaOpt2);
@@ -47,23 +47,23 @@ public class Optimal_teste {
 				.orElse("Sem seguro");
 		System.out.println(cobertura);
 
-		
+
 		String string = "Optiona Java 8";
 		Optional<Integer> optional = converterEmNumero(string);
 		//System.out.println(optional.get());  Ainda pode tomar uma Exception com get
 		optional.ifPresent(System.out::println);
-		
+
 		//Simplificando
 		converterEmNumero(string).ifPresent(System.out::println);
-		
+
 		String s = "9";  //se consegue converter String para Integer, imprime o valor
 		//String s = "valor"; //se não consegue converter, imprime 2
 		Integer n = converterEmNumero(s).orElse(2);
 		System.out.println(n);
-		
+
 		Integer n2 = converterEmNumero(s).orElseGet(() -> 5);
 		System.out.println(n2);
-		
+
 		Stream.of().findFirst().ifPresent(System.out::println);
 
 		Integer valor = 9;
@@ -81,7 +81,7 @@ public class Optimal_teste {
 
 		Optional.ofNullable(funcionario).ifPresentOrElse(f -> System.out.println(f.getNome()), () -> System.out.println("Vazio"));
 
-		List<Integer> status = Arrays.asList(2,6,8,10);
+		List<Integer> status = Arrays.asList(2, 6, 8, 10);
 
 		List<Integer> status2 = null;  //Para testar obj nulo
 
@@ -104,7 +104,7 @@ public class Optimal_teste {
 		List<Pessoa> pessoas = (List.of(new Pessoa("Rodrigo", 20), new Pessoa("Gustavo", 20)));
 		List<Pessoa> pessoasNulo = null;
 
-		if(Objects.nonNull(pessoasNulo)) {
+		if (Objects.nonNull(pessoasNulo)) {
 			boolean nome = pessoasNulo.stream().map(Pessoa::getNome).anyMatch(p -> p.equals("Rodrigo"));
 		}
 
@@ -141,8 +141,26 @@ public class Optimal_teste {
 
 		p1.ifPresent(System.out::println);
 		p2.ifPresent(System.out::println);
+
+//		private void buscarProtocoloElegivelReutilizacao(List<ProtocoloDiaResponse> protocolosDia, List<Long> protocolosEmUso) {
+//			protocolosDia.stream()
+//					.filter(protocolo -> !protocolosEmUso.contains(protocolo.getCdProtocoloCotacao()))
+//					.findFirst()
+//					.ifPresentOrElse(
+//							this::montarRequestComProtocolo,
+//							this::montarRequestSemProtocolo
+//					);
+//		}
+//
+//		private void montarRequestSemProtocolo() {
+//			Não existe protocolo disponivel na lista
+//		}
+//
+//		private void montarRequestComProtocolo(ProtocoloDiaResponse protocoloDisponivel) {
+//			Quanto tem protocolo disponivel na lista
+//		}
+
 	}
-	
 	public static Optional<Integer>	converterEmNumero(String numeroStr) {
 		try {
 			Integer numero = Integer.valueOf(numeroStr);
