@@ -12,6 +12,8 @@ public class Exemplo {
         System.out.println(converter("2"));
         System.out.println(converter(true));
         System.out.println(converter(null));
+        System.out.println(expressoesSwitch(DiasEnum.QUINTA));
+        System.out.println(expressoesSwitch(DiasEnum.DOMINGO));
     }
 
     public static void textBlockExemple() {
@@ -59,6 +61,13 @@ public class Exemplo {
             case Integer i -> i.doubleValue();
             case null -> 0d;
             default -> 0d;
+        };
+    }
+
+    private static String expressoesSwitch(DiasEnum dia) {
+        return switch (dia) {
+            case DOMINGO , SABADO -> "Final de semana";
+            default -> "Dia útil";
         };
     }
 
