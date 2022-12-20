@@ -9,6 +9,9 @@ public class Exemplo {
 //        patternMatching(5);
 //        patternMatching("cinco");
         recordsExample();
+        System.out.println(converter("2"));
+        System.out.println(converter(true));
+        System.out.println(converter(null));
     }
 
     public static void textBlockExemple() {
@@ -48,6 +51,15 @@ public class Exemplo {
         enum DIAS {DOMINGO, SEGUNDA};
 
         System.out.println(DIAS.DOMINGO);
+    }
+
+    private static Double converter(Object obj) {
+        return switch (obj) {
+            case String s -> Double.parseDouble(s);
+            case Integer i -> i.doubleValue();
+            case null -> 0d;
+            default -> 0d;
+        };
     }
 
 }
