@@ -158,7 +158,7 @@ public class FormatterUtils {
         System.out.println(format(patternCpf, cpfFormatado));
         System.out.println(format(patternCelular, celular));
 
-        String[] strAr1 = new String[] {"primeiro", "segundo", "Terceiro"};
+        String[] strAr1 = new String[] {"primeiro", "segundo", "terceiro"};
         String[] strAr2 = null;
         System.out.println(arrayToListNullSafe(strAr1));
         System.out.println(arrayToListNullSafe(strAr2));
