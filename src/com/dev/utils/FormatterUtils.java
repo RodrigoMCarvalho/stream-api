@@ -158,6 +158,11 @@ public class FormatterUtils {
         System.out.println(format(patternCpf, cpfFormatado));
         System.out.println(format(patternCelular, celular));
 
+        String[] strAr1 = new String[] {"primeiro", "segundo", "Terceiro"};
+        String[] strAr2 = null;
+        System.out.println(arrayToListNullSafe(strAr1));
+        System.out.println(arrayToListNullSafe(strAr2));
+
     }
 
     private static String format(String pattern, Object value) {
@@ -169,6 +174,11 @@ public class FormatterUtils {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static <T> List<T> arrayToListNullSafe(T[] array) {
+        return Objects.nonNull(array) ?
+                List.of(array) : Collections.emptyList();
     }
 
 }
