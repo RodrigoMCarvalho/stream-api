@@ -205,9 +205,24 @@ public class StreamApi2 {
 //		allMatch  -> Retorna true se todos mundo na lista retornar true;
 //		noneMatch -> Retorna true se todos na lista retornam false;
 
-		System.out.println("Compara de as listas tem os mesmo nomes: " +
-				pessoas.stream().map(Pessoa::getNome).allMatch(p ->
-						pessoas2.stream().map(Pessoa::getNome).collect(Collectors.toList()).contains(p)));
+		//Retorna true pois existem pessoas com o mesmo nome nas duas listas
+		System.out.println("Compara se as listas tem os mesmo nomes: " +
+				pessoas.stream()
+						.map(Pessoa::getNome)
+						.allMatch(p ->
+						pessoas2.stream()
+								.map(Pessoa::getNome)
+								.collect(Collectors.toList())
+								.contains(p)));
+
+		System.out.println("Retorna as pessoas com os mesmos nomes comparando as duas listas:");
+		pessoas.stream()
+				.filter(p1 -> pessoas2
+						.stream()
+						.map(Pessoa::getNome)
+						.anyMatch(p2 -> p2.equals(p1.getNome())))
+				.collect(Collectors.toList())
+				.forEach(System.out::println);
 
 		System.out.println(pessoas.stream().anyMatch(p -> p.getIdade() > 18));
 		System.out.println(pessoas.stream().anyMatch(p -> p.getNome().startsWith("G")));
@@ -238,6 +253,12 @@ public class StreamApi2 {
 
 		List<Long> protocolosValidos = protocolos.stream().filter(p -> !protocolosInvalidos.contains(p)).collect(Collectors.toList());
 		System.out.println(protocolosValidos); //[12318, 123655]
+
+
+
+
+
+
 
 	}
 

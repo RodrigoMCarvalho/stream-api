@@ -142,6 +142,11 @@ public class Optimal_teste {
 		p1.ifPresent(System.out::println);
 		p2.ifPresent(System.out::println);
 
+		Long numero = 8l;
+		String numeroString = "9";
+		numeroString = Optional.ofNullable(numero).map(Object::toString).orElse(null);
+		System.out.println(numeroString);
+
 //		private void buscarProtocoloElegivelReutilizacao(List<ProtocoloDiaResponse> protocolosDia, List<Long> protocolosEmUso) {
 //			protocolosDia.stream()
 //					.filter(protocolo -> !protocolosEmUso.contains(protocolo.getCdProtocoloCotacao()))
