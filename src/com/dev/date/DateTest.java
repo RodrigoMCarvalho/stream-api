@@ -152,6 +152,22 @@ public class DateTest {
 
         System.out.println(fimDeSemana(now1));
         System.out.println(fimDeSemana(sabado));
+
+        LocalDate dataInicioLei = LocalDate.of(2023, 01, 01);
+        LocalDate dataIniIgualLei = LocalDate.of(2023, 01, 01);
+        LocalDate dataIni = LocalDate.of(2022, 01, 01);
+        LocalDate dataIni2 = LocalDate.of(2023, 01, 02);
+        LocalDate hj = LocalDate.now();
+
+        System.out.println("01/01/2023 >= 01/01/2023 = " + (dataIniIgualLei.isAfter(dataInicioLei) || dataIniIgualLei.isEqual(dataInicioLei)));
+        System.out.println("01/01/2022 >= 01/01/2023 = " + (dataIni.isAfter(dataInicioLei) || dataIni.isEqual(dataInicioLei)));
+        System.out.println("02/01/2023 >= 01/01/2023 = " + (dataIni2.isAfter(dataInicioLei) || dataIni2.isEqual(dataInicioLei)));
+        System.out.println("Hoje >= 01/01/2023 = " + (hj.isAfter(dataInicioLei)|| hj.isEqual(dataInicioLei)));
+//        01/01/2023 >= 01/01/2023 = true
+//        01/01/2022 >= 01/01/2023 = false
+//        02/01/2023 >= 01/01/2023 = true
+//        Hoje >= 01/01/2023 = true
+
     }
 
     public static boolean fimDeSemana(LocalDate ld) {
