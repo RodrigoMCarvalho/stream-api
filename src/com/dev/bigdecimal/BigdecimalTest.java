@@ -93,6 +93,19 @@ public class BigdecimalTest {
         BigDecimal b1 = BigDecimal.valueOf(0.3);
         System.out.println("Bigdecimal: " + b1.multiply(BigDecimal.valueOf(3)));  //Bigdecimal: 0.9
 
+
+        BigDecimal estoque = BigDecimal.valueOf(300);
+
+        BigDecimal valor = BigDecimal.valueOf(100);  //adicionar o valor no estoque
+        BigDecimal valorDebitado = valor.multiply(BigDecimal.ONE.negate());  //remover o valor no estoque
+
+        BigDecimal totalSomado = estoque.add(valor);
+        BigDecimal totalDebitado = estoque.add(valorDebitado);
+
+        System.out.println("Estoque inicial: " + estoque);
+        System.out.println("Valor: " + valor);
+        System.out.println("Total somado: " + totalSomado);
+        System.out.println("Total debitado: " + totalDebitado);
     }
 
     public static BigDecimal calcularMedia(List<BigDecimal> values) {
