@@ -255,7 +255,25 @@ public class StreamApi2 {
 		System.out.println(protocolosValidos); //[12318, 123655]
 
 
+		Fruta fruta1 = new Fruta("Maça", 5);
+		Fruta fruta2 = new Fruta("Morango", 8);
+		Fruta fruta3 = new Fruta("Banana", 14);
+		Fruta fruta4 = new Fruta("Pêra", 15);
 
+		List<Fruta> frutas = new ArrayList<>();
+		frutas.add(fruta1);
+		frutas.add(fruta2);
+		frutas.add(fruta3);
+		frutas.add(fruta4);
+
+		Cesta cesta = new Cesta(frutas);
+		System.out.println(cesta);
+
+		List<String> frutaARemover = new ArrayList<>();
+		frutaARemover.add("Banana");
+		frutaARemover.forEach(b -> cesta.getFrutas().removeIf(f -> f.getNome().equals(b)));
+
+		System.out.println(cesta);
 
 
 
