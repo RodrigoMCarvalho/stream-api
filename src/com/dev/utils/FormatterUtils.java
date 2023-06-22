@@ -98,6 +98,8 @@ public class FormatterUtils {
         String cnpj = "16.414.781/0001-09";
         System.out.println("CPF tem " + cpf.length());
         System.out.println("CNPJ tem " + cnpj.length());
+        String cpfPuro = "123456789";
+        String cpfPuro2 = cpfPuro.replaceAll("[^0-9]", "");
 
         // Remover os caracteres e deixar somente os numeros
         String cnpjSoNumeros = cnpj.replaceAll("[^0-9]", "");
@@ -105,6 +107,9 @@ public class FormatterUtils {
         System.out.println("CNPJ so numeros: " + cnpjSoNumeros);
         System.out.println("CPF so numeros: " + cpfSoNumeros);
         System.out.println("Teste so numeros: " + "123456789".replaceAll("[^0-9]", ""));
+
+        System.out.println("CPF puro: " + cpfPuro);
+        System.out.println("CPF puro 2: " + cpfPuro2);
 
         System.out.println("============================");
 
