@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.*;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class FormatterUtils {
 
@@ -163,6 +164,24 @@ public class FormatterUtils {
         System.out.println(arrayToListNullSafe(strAr1));
         System.out.println(arrayToListNullSafe(strAr2));
 
+        System.out.println(" =============================  ");
+        String cnpj2 = "12.345.678/0001-90";
+        String cpf2 = "123.456.789-00";
+
+        String cnpjSoNumeros2 = "12345678000190";
+        String cpfSoNumeros2 = "12345678900";
+
+        System.out.println("Is CNPJ: " + isCNPJ(cnpj2));
+        System.out.println("Is CPF: " + isCPF(cpf2));
+
+        System.out.println("Is CNPJ: " + isCNPJ(cpf2));
+        System.out.println("Is CPF: " + isCPF(cnpj2));
+
+        System.out.println("Is CNPJ so numeros: " + isCNPJ(cnpjSoNumeros2));
+        System.out.println("Is CPF so numeros: " + isCPF(cpfSoNumeros2));
+
+        System.out.println("Is CNPJ - passando CPF so numeros: " + isCNPJ(cpfSoNumeros2));
+
     }
 
     private static String format(String pattern, Object value) {
@@ -179,6 +198,16 @@ public class FormatterUtils {
     public static <T> List<T> arrayToListNullSafe(T[] array) {
         return Objects.nonNull(array) ?
                 List.of(array) : Collections.emptyList();
+    }
+
+    public static boolean isCNPJ(String input) {
+        String cnpjPattern = "\\d{2}\\.?\\d{3}\\.?\\d{3}/?\\d{4}-?\\d{2}";
+        return Pattern.matches(cnpjPattern, input);
+    }
+
+    public static boolean isCPF(String input) {
+        String cpfPattern = "\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2}";
+        return Pattern.matches(cpfPattern, input);
     }
 
 }
