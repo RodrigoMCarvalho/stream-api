@@ -44,6 +44,13 @@ public class Exemplo {
        ProdutoRecord produtoRecord = new ProdutoRecord(1l, "Produto1", BigDecimal.TEN);
         System.out.println(produtoRecord);
 
+        //Records são imutáveis
+        ProdutoRecord produtoRecord1 = produtoRecord.mudarDescricao("Produto2");
+        System.out.println(produtoRecord1);
+
+        ProdutoRecord produtoRecord2 = produtoRecord.mudarValor(BigDecimal.ONE);
+        System.out.println(produtoRecord2);
+
         record Temporaria(String nome){};
         Temporaria temp = new Temporaria("Temporaria");
         System.out.println(temp.nome);
