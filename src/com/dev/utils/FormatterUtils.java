@@ -6,6 +6,8 @@ import javax.swing.text.MaskFormatter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -187,6 +189,8 @@ public class FormatterUtils {
 
         System.out.println("Is CNPJ - passando CPF so numeros: " + isCNPJ(cpfSoNumeros2));
 
+        convert("LFT - 20290301");
+
     }
 
     private static String format(String pattern, Object value) {
@@ -214,5 +218,23 @@ public class FormatterUtils {
         String cpfPattern = "\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2}";
         return Pattern.matches(cpfPattern, input);
     }
+
+   public static void convert(String input) {
+       int separatorIndex = input.indexOf(" - ");
+
+       if (separatorIndex != -1 && separatorIndex < input.length() - 3) {
+           String stringPart = input.substring(0, separatorIndex);
+           String datePart = input.substring(separatorIndex + 3);
+
+           DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+           LocalDate date = LocalDate.parse(datePart, dateFormatter);
+
+
+           System.out.println("String: " + stringPart);
+           System.out.println("Data: " + date);
+       } else {
+           System.out.println("Não foi possível fazer a separação.");
+       }
+   }
 
 }
