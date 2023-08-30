@@ -1,14 +1,11 @@
 package com.dev.java8;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.Stream;
-
 import com.dev.models.Funcionario;
 import com.dev.models.Pessoa;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamApi {
 
