@@ -10,7 +10,7 @@ public class InterfaceFuncionalTest {
 
         Stream.generate(() -> new Random().nextInt()) //SUPPLIER - Nao recebe valor e retorna um valor
                 .limit(5)
-                .forEach(e -> System.out.println(e)); //CONSUMER - Recebe um valor, faz alguma coisa com ele e nao retorna nada
+                .forEach(System.out::println); //CONSUMER - Recebe um valor, faz alguma coisa com ele e nao retorna nada
 
         List<Integer> lista = Arrays.asList(1, 2, 3, 4, 5);
         lista.stream()
