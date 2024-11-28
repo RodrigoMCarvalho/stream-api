@@ -39,7 +39,7 @@ public class FunctionTest {
         return palavra -> palavra.length() * 10;
     }
 
-    public static Function<String, Integer> multiplyWord2TestenadoNull() {
+    public static Function<String, Integer> multiplyWord2TestandoNull() {
         return palavra -> {
             if(Objects.isNull(palavra)) {
                 return null;
