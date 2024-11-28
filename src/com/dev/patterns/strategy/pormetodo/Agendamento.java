@@ -12,6 +12,9 @@ public class Agendamento {
         this.cdAgendamento = cdAgendamento;
     }
 
+    public Long getCdAgendamento() {
+        return cdAgendamento;
+    }
 }
 
 class DadosAgendamento {
@@ -80,6 +83,7 @@ class Main {
 
         AgendamentoEnum metodoEnum = AgendamentoEnum.obterMetodo(dadosAgendamento.getCdStatus());
 
-        metodoEnum.executar(dadosAgendamento);
+        Agendamento response = metodoEnum.executar(dadosAgendamento);
+        System.out.println(response.getCdAgendamento());
     }
 }
